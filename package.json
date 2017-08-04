@@ -1,0 +1,13 @@
+{
+  "name": "ReactExpressMongo",
+  "version": "1.0.0",
+  "description": "REM tech stack",
+  "main": "index.js",
+  "repository": "https://github.com/JoelGuizar/aFewCruds.git",
+  "author": "Joel Guizar <joelguizar@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "path": "^0.12.7",
+    "webpack-dev-server": "^2.6.1"
+  }
+}
