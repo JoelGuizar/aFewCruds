@@ -33,7 +33,7 @@ export default class List extends React.Component{
         }
       </ul>
 
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.props.addToList(this.target.value(e))}>
           <label>
             Name:
             <input type = 'text'/> <br/>
