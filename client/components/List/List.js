@@ -4,43 +4,27 @@ import Item from './Item.js';
 export default class List extends React.Component{
   constructor(){
     super();
-    this.state = {list: []};
-    this.currentObject ={};
-    this.onSubmit = this.handleSubmit.bind(this);
+    this.state = {value: ""};
   }
 
-  handleSubmit(e){
-    e.preventDefault();
-    const self = this;
-
-    fetch('/users', {
-      method: 'POST',
-      data: {
-
-      }
-    });
-  }
 
   render(){
     return (
       <div className = "list">
       <h1> List Component </h1>
       <ul>
-        {
-          this.props.list.map(function(e,i){
+        {this.props.list.map(function(e,i){
             return <Item key={i} data={e} />
           })
         }
       </ul>
 
-        <form onSubmit={this.props.addToList(this.target.value(e))}>
+        <form onSubmit= {this.props.addToList} >
           <label>
             Name:
-            <input type = 'text'/> <br/>
+            <input type= 'text' value={this.props.list.value} onChange={this.props.handleChange(event.target.value)}/> <br/>
           </label>
-
-            Hi:
-            <input type = 'Lol'/>
+            <input type= "submit" value= "Add" />
         </form>
 
       </div>
