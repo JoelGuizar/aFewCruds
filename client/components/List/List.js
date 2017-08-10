@@ -22,7 +22,7 @@ export default class List extends React.Component{
         <form onSubmit= {this.props.addToList} >
           <label>
             Name:
-            <input type= 'text' value={this.props.list.value} onChange={this.props.handleChange(event.target.value)}/> <br/>
+            <input type= 'text' value={this.props.list.value} onChange={console.log(event)}/> <br/>
           </label>
             <input type= "submit" value= "Add" />
         </form>
