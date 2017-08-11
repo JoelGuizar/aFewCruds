@@ -9,23 +9,23 @@ export default class App extends React.Component{
     this.state = {
       list: ["Apple", "Lol"],
       popList: [],
-      value: ""
+      input: ""
     }
     this.handleList = this.handleList.bind(this);
     this.handlePopList = this.handlePopList.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
 
   handleList(e){
-    //e.preventDefault();
-
-    let list = this.state.list;
-    //list.push(e.target.value);
-    list.push(e);
-    this.setState.list = list;
+    e.preventDefault();
+    this.setState({'list': this.state.list.concat(this.state.input)});
     //console.log(e.target.value);
-    return list;
+    console.log(this.state.input);
+  }
+
+  handleInput(item){
+    this.setState({input:input})
   }
 
   handlePopList(e){
@@ -50,17 +50,12 @@ export default class App extends React.Component{
     this.setState(value: "");
   }
 
-  handleChange(e){
-    e.preventDefault(e);
-    this.setState({value: e.target.value});
-  }
 
   render(){
     return (
       <div className="container">
         <h1> Container Component </h1>
-        <List list= {this.state.list} addToList= {this.handleList} handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit} />
+        <List list= {this.state.list} addToList= {this.handleList}/>
         <PopularList popList= {this.state.popList} addToPopList= {this.handlePopList}/>
       </div>
     )

@@ -4,9 +4,14 @@ import Item from './Item.js';
 export default class List extends React.Component{
   constructor(){
     super();
-    this.state = {value: ""};
+    this.state = {input: ""};
+    this.handleChange = this.handleChange.bind(this)
   }
 
+  handleChange(e){
+    //e.preventDefault();
+    this.setState({input:e.target.value});
+  }
 
   render(){
     return (
@@ -22,7 +27,7 @@ export default class List extends React.Component{
         <form onSubmit= {this.props.addToList} >
           <label>
             Name:
-            <input type= 'text' value={this.props.list.value} onChange={console.log(event)}/> <br/>
+            <input type= 'text' value={this.state.input} onChange={this.handleChange} /> <br/>
           </label>
             <input type= "submit" value= "Add" />
         </form>
