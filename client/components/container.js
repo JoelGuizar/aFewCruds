@@ -1,13 +1,14 @@
 import React from 'react';
 import List from './List/list.js';
 import PopularList from './Popular/PopularList.js';
+import axios from 'axios';
 
 
 export default class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      list: ["Apple", "Lol"],
+      list: [],
       popList: [],
       input: ""
     }
@@ -21,7 +22,7 @@ export default class App extends React.Component{
     e.preventDefault();
     this.setState({'list': this.state.list.concat(this.state.input)});
     //console.log(e.target.value);
-    this.setState({'input': ""});
+
   }
 
 
@@ -35,17 +36,15 @@ export default class App extends React.Component{
   }
 
   handleSubmit(e){
-    e.preventDefault();
+    // e.preventDefault();
     const self = this;
-    this.setState(input: "");
-
 
     fetch('/post', {
       method: 'POST',
       data: this.state.input
     });
 
-    this.setState(input: "");
+    this.setState({'input': ""});
   }
 
   handleChange(e){
