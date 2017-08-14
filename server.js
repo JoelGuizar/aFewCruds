@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 // const bodyParser = require('body-parser');
 const app = express();
 
-const PORT = 8888;
+const PORT = 8080;
 
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded());
@@ -15,11 +15,11 @@ app.listen(8080, function(){
 });
 
 app.get('/', (req, res) => {
-  res.send("./client/index.html");
+  res.sendFile(path.join(__dirname, "/client/index.html"));
   res.end();
 })
 
 app.get('/yo', (req, res) => {
-  console.log("LOL");
+  // console.log(__dirname);
   res.send("onSubmit handler sent");
 })
