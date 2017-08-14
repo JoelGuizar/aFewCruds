@@ -12,6 +12,7 @@ app.use(cookieParser());
 
 app.listen(8080);
 
-app.post('/post', (res, req, error) => {
+app.get('/yo', (res, req, error) => {
+  console.log("LOL");
   res.send("onSubmit handler sent");
 })

@@ -22,7 +22,7 @@ export default class App extends React.Component{
     e.preventDefault();
     this.setState({'list': this.state.list.concat(this.state.input)});
     //console.log(e.target.value);
-
+    this.handleSubmit();
   }
 
 
@@ -37,12 +37,14 @@ export default class App extends React.Component{
 
   handleSubmit(e){
     // e.preventDefault();
-    const self = this;
-
-    fetch('/post', {
-      method: 'POST',
-      data: this.state.input
-    });
+    console.log("lol");
+    axios.get('/yo')
+      .then(function(response){
+      console.log(response);
+    })
+      .catch(function(error){
+        console.log(error);
+      })
 
     this.setState({'input': ""});
   }
